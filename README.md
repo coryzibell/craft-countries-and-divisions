@@ -2,8 +2,8 @@
 
 Endpoints, services, and twig tools for dealing with countries and their divisions.
 
-![Globe](./resources/plugin-logo.svg)
-<img src="./resources/plugin-logo.svg">
+![Globe](./resources/img/plugin-logo.svg)
+<img src="./resources/img/plugin-logo.svg">
 
 ## Requirements
 
