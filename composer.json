@@ -1,0 +1,43 @@
+{
+    "name": "coryzibell/craft-countries-and-divisions",
+    "description": "Endpoints, services, and twig tools for dealing with countries and their divisions.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "craft countries and divisions"
+    ],
+    "support": {
+        "docs": "https://github.com/coryzibell/craft-countries-and-divisions/blob/master/README.md",
+        "issues": "https://github.com/coryzibell/craft-countries-and-divisions/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cory Zibell",
+            "homepage": "https://www.twitter.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "coryzibell\\craftcountriesanddivisions\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Craft Countries and Divisions",
+        "handle": "craft-countries-and-divisions",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/coryzibell/craft-countries-and-divisions/master/CHANGELOG.md",
+        "components": {
+            "country": "coryzibell\\craftcountriesanddivisions\\services\\Country"
+        },
+        "class": "coryzibell\\craftcountriesanddivisions\\CraftCountriesAndDivisions"
+    }
+}
