@@ -46,33 +46,41 @@ class CountryController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index', 'do-something'];
+    protected $allowAnonymous = ['get', 'get-all', 'get-countries', 'get-territories'];
 
     // Public Methods
     // =========================================================================
 
     /**
      * Handle a request going to our plugin's index action URL,
-     * e.g.: actions/craft-countries-and-divisions/country
+     * e.g.: actions/craft-countries-and-divisions/country/get
      *
      * @return mixed
      */
-    public function actionIndex()
+    public function actionGet()
     {
         $result = 'Welcome to the CountryController actionIndex() method';
 
         return $result;
     }
 
-    /**
-     * Handle a request going to our plugin's actionDoSomething URL,
-     * e.g.: actions/craft-countries-and-divisions/country/do-something
-     *
-     * @return mixed
-     */
-    public function actionDoSomething()
+    public function actionGetAll()
     {
-        $result = 'Welcome to the CountryController actionDoSomething() method';
+        $result = 'Welcome to the CountryController actionIndex() method';
+
+        return $result;
+    }
+
+    public function actionGetCountries()
+    {
+        $result = 'Welcome to the CountryController actionIndex() method';
+
+        return $result;
+    }
+
+    public function actionGetTerritories()
+    {
+        $result = 'Welcome to the CountryController actionIndex() method';
 
         return $result;
     }

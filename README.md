@@ -2,7 +2,8 @@
 
 Endpoints, services, and twig tools for dealing with countries and their divisions.
 
-![Screenshot](resources/img/plugin-logo.png)
+![Globe](./resources/plugin-logo.svg)
+<img src="./resources/plugin-logo.svg">
 
 ## Requirements
 
@@ -24,20 +25,20 @@ To install the plugin, follow these instructions.
 
 ## Craft Countries and Divisions Overview
 
--Insert text here-
+TODO: Add content here
 
 ## Configuring Craft Countries and Divisions
 
--Insert text here-
+TODO: Add content here
 
 ## Using Craft Countries and Divisions
 
--Insert text here-
+TODO: Add content here
 
 ## Craft Countries and Divisions Roadmap
 
 Some things to do, and ideas for potential features:
 
-* Release it
+TODO: Add content here
 
 Brought to you by [Cory Zibell](https://www.twitter.com)
