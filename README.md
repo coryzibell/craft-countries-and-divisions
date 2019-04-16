@@ -2,7 +2,7 @@
 
 Endpoints, services, and twig tools for dealing with countries and their divisions.
 
-<img style="max-width: 300px;" src="./resources/img/plugin-logo.svg">
+<img style="width: 300px;" src="./resources/img/plugin-logo.svg">
 
 ## Requirements
 
