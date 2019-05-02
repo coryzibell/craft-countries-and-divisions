@@ -10,7 +10,7 @@
 
 namespace coryzibell\craftcountriesanddivisions\controllers;
 
-use coryzibell\craftcountriesanddivisions\CraftCountriesAndDivisions;
+use coryzibell\craftcountriesanddivisions\services\Country;
 
 use Craft;
 use craft\web\Controller;
@@ -46,7 +46,7 @@ class CountryController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['get', 'get-all', 'get-countries', 'get-territories'];
+    protected $allowAnonymous = ['get-all', 'get-countries', 'get-territories', 'get-territories-list'];
 
     // Public Methods
     // =========================================================================
@@ -57,31 +57,36 @@ class CountryController extends Controller
      *
      * @return mixed
      */
-    public function actionGet()
-    {
-        $result = 'Welcome to the CountryController actionIndex() method';
-
-        return $result;
-    }
 
     public function actionGetAll()
     {
-        $result = 'Welcome to the CountryController actionIndex() method';
+      $result = Country::getArray();
 
-        return $result;
+      return $this->asJson($result);
     }
 
     public function actionGetCountries()
     {
-        $result = 'Welcome to the CountryController actionIndex() method';
+      $result = Country::getCountries();
 
-        return $result;
+      return $this->asJson($result);
     }
 
     public function actionGetTerritories()
     {
-        $result = 'Welcome to the CountryController actionIndex() method';
+      $code = strtolower(Craft::$app->request->getParam('code'));
 
-        return $result;
+      $result = Country::getTerritories($code);
+
+      return $this->asJson($result);
+    }
+
+    public function actionGetTerritoriesList()
+    {
+      $code = strtolower(Craft::$app->request->getParam('code'));
+
+      $result = Country::getTerritoriesList($code);
+
+      return $this->asJson($result);
     }
 }

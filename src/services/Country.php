@@ -14,6 +14,7 @@ use coryzibell\craftcountriesanddivisions\CraftCountriesAndDivisions;
 
 use Craft;
 use craft\base\Component;
+use Yii;
 
 /**
  * Country Service
@@ -44,21 +45,21 @@ class Country extends Component
      * @return mixed
      */
 
-    public function getJson() {
+    public static function getJson() {
         // Grab the contents of the JSON file
-        $jsonContents = file_get_contents('../lib/data.json');
+        $jsonContents = file_get_contents(__DIR__.'/../../lib/data.json');
         return $jsonContents;
     }
 
-    public function getArray() {
+    public static function getArray() {
         // Convert the JSON file into an associative array
-        $array = json_decode(getJson(), true);
+        $array = json_decode(self::getJson(), true);
         return $array;
     }
 
-    public function getCountries() {
+    public static function getCountries() {
         // Return the full data array into a key->value array
-        $array = getArray();
+        $array = self::getArray();
         $returnArray = [];
         foreach($array as $key => $value) {
             $returnArray[$key] = $value['name'];
@@ -66,37 +67,36 @@ class Country extends Component
         return $returnArray;
     }
 
-    public function getCountriesReverse() {
+    public static function getCountriesReverse() {
         // Return the full data array as a reverse key->value array
-        $array = getCountries();
+        $array = self::getCountries();
         $returnArray = [];
         foreach($array as $key => $value) {
             $returnArray[$value] = $key;
         }
     }
 
-    public function getTerritories($isoCode) {
+    public static function getTerritories($search) {
         // Return an associative array of territories for a country
-        $array = getArray();
+        $array = self::getArray();
         foreach($array as $key => $value) {
-            if ($isoCode == $key) {
+            if ($search == strtolower($key) || $search == strtolower($value['name'])) {
                 return $value['divisions'];
                 break;
             }
         }
     }
 
-    public function getTerritoriesList($isoCode) {
+    public static function getTerritoriesList($search) {
         // Return an array of territories for a country
-        $array = getArray();
+        $array = self::getArray();
         $returnTerritories = [];
         foreach($array as $key => $value) {
-            if ($isoCode == $key) {
-                foreach($value as $key => $value) {
-                    array_push($returnTerritories, $value);
+            if ($search == strtolower($key) || $search == strtolower($value['name'])) {
+                foreach($value['divisions'] as $key => $value) {
+                    array_push($returnTerritories, current($value));
                 }
                 return $returnTerritories;
-                break;
             }
         }
     }
